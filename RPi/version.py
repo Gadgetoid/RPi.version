@@ -152,21 +152,25 @@ _version_from_revision = [
 _memory = [
     256,
     512,
-    1024
+    1024,
+    2048,
+    4096
 ]
 
 _manufacturer = [
     'SONY',
     'EGOMAN',
     'EMBEST',
-    'UNKNOWN',
-    'EMBEST'
+    'SONY JAPAN',
+    'EMBEST',
+    'STADIUM'
 ]
 
 _processor = [
     2835,
     2836,
-    2837
+    2837,
+    2711
 ]
 
 _type = [
@@ -174,12 +178,20 @@ _type = [
     'Model B',
     'Model A+',
     'Model B+',
-    'Model B Pi 2',
+    'Model 2B',
     'Alpha',
-    'Computer Module',
+    'Compute Module 1',
     'Unknown',
-    'Model B Pi 3',
-    'Model Zero'
+    'Model 3B',
+    'Model Zero',
+    'Compute Module 3',
+    'Unknown',
+    'Zero W',
+    'Model 3B+',
+    'Model 3A+',
+    'Internal',
+    'Compute Module 3+',
+    'Model 4B'
 ]
 
 _model = [
@@ -189,10 +201,18 @@ _model = [
     'B',
     'B',
     'Alpha',
-    'Computer Module',
+    'Compute Module',
     'Unknown',
     'B',
-    'Zero'
+    'Zero',
+    'Compute Module',
+    'Unknown',
+    'Zero W',
+    '3B+',
+    '3A+',
+    'Internal',
+    '3+',
+    '4B'
 ]
 
 _version = [
@@ -205,7 +225,15 @@ _version = [
      'Unknown',
      'Unknown',
      3,
-     'Zero'
+     'Zero',
+     3,
+     'Unknown',
+     'Zero W',
+     3,
+     3,
+     'Unknown',
+     3,
+     4
 ]
 
 _cpuinfo = open('/proc/cpuinfo').read()
