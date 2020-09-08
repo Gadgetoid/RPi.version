@@ -21,7 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from distutils.core import setup
+from setuptools import setup
 
 classifiers = ['Development Status :: 5 - Production/Stable',
                'Operating System :: POSIX :: Linux',
@@ -43,6 +43,7 @@ setup(name		= 'RPi.version',
 	keywords	= 'Raspberry Pi Version Information',
 	url		= 'http://www.pimoroni.com',
 	classifiers     = classifiers,
-	packages	= ['RPi']
+	packages	= ['RPi'],
+	entry_points = {'console_scripts': ['rpi-version = RPi.version:main']},
 )
 

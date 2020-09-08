@@ -323,7 +323,7 @@ info = {
         'version': version
         }
 
-if __name__ == "__main__":
+def main():
     print("---- Raspberry Pi Info ----")
     print("Type:\t\t{}".format(type))
     print("Model:\t\t{}".format(model))
@@ -335,3 +335,7 @@ if __name__ == "__main__":
     print("Revision:\t{}".format(_cpuinfo['Revision']))
     print("Void waranty:\t{}".format(waranty))
     print("---------------------------")
+
+
+if __name__ == '__main__':
+    main()
