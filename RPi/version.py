@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+from __future__ import print_function, absolute_import
+
+
 _memory_from_revision = [
     'Unkonwn',
     'Unkonwn',
@@ -245,7 +248,7 @@ _cpuinfo = _cpuinfo.replace("\t", "")
 _cpuinfo = _cpuinfo.split("\n")
 
 # Filter empty strings
-_cpuinfo = filter(len, _cpuinfo)
+_cpuinfo = list(filter(len, _cpuinfo))
 
 # Split into key/value dict
 _cpuinfo = dict(item.split(": ") for item in _cpuinfo)
@@ -321,14 +324,14 @@ info = {
         }
 
 if __name__ == "__main__":
-    print "---- Raspberry Pi Info ----"
-    print "Type:\t\t{}".format(type)
-    print "Model:\t\t{}".format(model)
-    print "Version:\t{}".format(version)
-    print "RAM:\t\t{}".format(memory)
-    print "CPU:\t\t{}".format(processor)
-    print "Manufacturer:\t{}".format(manufacturer)
-    print "PCB revision:\t{}".format(pcb_revision)
-    print "Revision:\t{}".format(_cpuinfo['Revision'])
-    print "Void waranty:\t{}".format(waranty)
-    print "---------------------------"
+    print("---- Raspberry Pi Info ----")
+    print("Type:\t\t{}".format(type))
+    print("Model:\t\t{}".format(model))
+    print("Version:\t{}".format(version))
+    print("RAM:\t\t{}".format(memory))
+    print("CPU:\t\t{}".format(processor))
+    print("Manufacturer:\t{}".format(manufacturer))
+    print("PCB revision:\t{}".format(pcb_revision))
+    print("Revision:\t{}".format(_cpuinfo['Revision']))
+    print("Void waranty:\t{}".format(waranty))
+    print("---------------------------")
