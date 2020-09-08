@@ -45,7 +45,7 @@ _type_from_revision = [
     'Model B',
     'Model B',
     'Model B+',
-    'Computer Module'
+    'Computer Module',
     'Model A+',
     'Model B+',
     'Computer Module',
@@ -120,7 +120,7 @@ _model_from_revision = [
     'B',
     'B',
     'B+',
-    'Computer Module'
+    'Computer Module',
     'A+',
     'B+',
     'Computer Module',
