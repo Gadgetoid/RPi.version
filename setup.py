@@ -23,27 +23,29 @@ SOFTWARE.
 
 from setuptools import setup
 
-classifiers = ['Development Status :: 5 - Production/Stable',
-               'Operating System :: POSIX :: Linux',
-               'License :: OSI Approved :: MIT License',
-               'Intended Audience :: Developers',
-               'Programming Language :: Python :: 2.6',
-               'Programming Language :: Python :: 2.7',
-               'Programming Language :: Python :: 3',
-               'Topic :: Software Development',
-               'Topic :: System :: Hardware']
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Operating System :: POSIX :: Linux',
+    'License :: OSI Approved :: MIT License',
+    'Intended Audience :: Developers',
+    'Programming Language :: Python :: 2.6',
+    'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3',
+    'Topic :: Software Development',
+    'Topic :: System :: Hardware',
+]
 
-setup(name		= 'RPi.version',
-	version		= '1.2',
-	author		= 'Philip Howard',
-	author_email	= 'phil@pimoroni.com',
-	description	= 'Detailed information about Raspberry Pi version',
-	long_description= open('README.md').read() + open('CHANGELOG.md').read(),
-	license		= 'MIT',
-	keywords	= 'Raspberry Pi Version Information',
-	url		= 'http://www.pimoroni.com',
-	classifiers     = classifiers,
-	packages	= ['RPi'],
-	entry_points = {'console_scripts': ['rpi-version = RPi.version:main']},
+setup(
+    name='RPi.version',
+    version='1.2',
+    author='Philip Howard',
+    author_email='phil@pimoroni.com',
+    description='Detailed information about Raspberry Pi version',
+    long_description=open('README.md').read() + open('CHANGELOG.md').read(),
+    license='MIT',
+    keywords='Raspberry Pi Version Information',
+    url='http://www.pimoroni.com',
+    classifiers=classifiers,
+    packages=['RPi'],
+    entry_points={'console_scripts': ['rpi-version = RPi.version:main']},
 )
-

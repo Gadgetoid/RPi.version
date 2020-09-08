@@ -24,7 +24,7 @@ _memory_from_revision = [
     256,
     512,
     512,
-    256
+    256,
 ]
 
 _type_from_revision = [
@@ -49,7 +49,7 @@ _type_from_revision = [
     'Model A+',
     'Model B+',
     'Computer Module',
-    'Model A+'
+    'Model A+',
 ]
 
 _manufacturer_from_revision = [
@@ -74,7 +74,7 @@ _manufacturer_from_revision = [
     'SONY',
     'EMBEST',
     'SONY',
-    'SONY'
+    'SONY',
 ]
 
 _pcb_from_revision = [
@@ -99,7 +99,7 @@ _pcb_from_revision = [
     1,
     1,
     1,
-    1
+    1,
 ]
 
 _model_from_revision = [
@@ -124,7 +124,7 @@ _model_from_revision = [
     'A+',
     'B+',
     'Computer Module',
-    'MA+'
+    'MA+',
 ]
 
 _version_from_revision = [
@@ -152,29 +152,11 @@ _version_from_revision = [
     1,
 ]
 
-_memory = [
-    256,
-    512,
-    1024,
-    2048,
-    4096
-]
+_memory = [256, 512, 1024, 2048, 4096]
 
-_manufacturer = [
-    'SONY',
-    'EGOMAN',
-    'EMBEST',
-    'SONY JAPAN',
-    'EMBEST',
-    'STADIUM'
-]
+_manufacturer = ['SONY', 'EGOMAN', 'EMBEST', 'SONY JAPAN', 'EMBEST', 'STADIUM']
 
-_processor = [
-    2835,
-    2836,
-    2837,
-    2711
-]
+_processor = [2835, 2836, 2837, 2711]
 
 _type = [
     'Model A',
@@ -194,7 +176,7 @@ _type = [
     'Model 3A+',
     'Internal',
     'Compute Module 3+',
-    'Model 4B'
+    'Model 4B',
 ]
 
 _model = [
@@ -215,28 +197,28 @@ _model = [
     '3A+',
     'Internal',
     '3+',
-    '4B'
+    '4B',
 ]
 
 _version = [
-     1,
-     1,
-     1,
-     1,
-     2,
-     'Unknown',
-     'Unknown',
-     'Unknown',
-     3,
-     'Zero',
-     3,
-     'Unknown',
-     'Zero W',
-     3,
-     3,
-     'Unknown',
-     3,
-     4
+    1,
+    1,
+    1,
+    1,
+    2,
+    'Unknown',
+    'Unknown',
+    'Unknown',
+    3,
+    'Zero',
+    3,
+    'Unknown',
+    'Zero W',
+    3,
+    3,
+    'Unknown',
+    3,
+    4,
 ]
 
 _cpuinfo = open('/proc/cpuinfo').read()
@@ -256,7 +238,7 @@ _cpuinfo = dict(item.split(": ") for item in _cpuinfo)
 # Convert revision string to integer
 _revision = int(_cpuinfo['Revision'], 16)
 
-#Bit field:
+# Bit field:
 """
 11000000000000000000000000 = 0x3000000 = WARANTY 
 00100000000000000000000000 = 0x0800000 = SCHEME
@@ -281,7 +263,7 @@ info = {}
 
 if _scheme:
 
-    waranty = int((_revision &  0x3000000) >> 24) > 0
+    waranty = int((_revision & 0x3000000) >> 24) > 0
 
     memory = _memory[(_revision & 0x700000) >> 20]
 
@@ -309,19 +291,20 @@ else:
     version = _version_from_revision[_revision]
 
     model = _model_from_revision[_revision]
-    
+
     pcb_revision = _pcb_from_revision[_revision]
 
 info = {
-        'memory': memory,
-        'manufacturer':  manufacturer,
-        'processor': processor,
-        'type': type,
-        'revision': _cpuinfo['Revision'],
-        'pcb_revision': pcb_revision,
-        'model': model,
-        'version': version
-        }
+    'memory': memory,
+    'manufacturer': manufacturer,
+    'processor': processor,
+    'type': type,
+    'revision': _cpuinfo['Revision'],
+    'pcb_revision': pcb_revision,
+    'model': model,
+    'version': version,
+}
+
 
 def main():
     print("---- Raspberry Pi Info ----")
