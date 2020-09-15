@@ -252,10 +252,11 @@ _revision = int(_cpuinfo['Revision'], 16)
 # Determine scheme
 _scheme = (_revision & 0x800000) >> 23
 
+warranty = "N/A"
 memory = "N/A"
 manufacturer = "N/A"
 processor = "N/A"
-type = "N/A"
+board_type = "N/A"
 model = "N/A"
 version = "N/A"
 pcb_revision = "N/A"
@@ -263,7 +264,7 @@ info = {}
 
 if _scheme:
 
-    waranty = int((_revision & 0x3000000) >> 24) > 0
+    warranty = int((_revision & 0x3000000) >> 24) > 0
 
     memory = _memory[(_revision & 0x700000) >> 20]
 
@@ -271,7 +272,7 @@ if _scheme:
 
     processor = _processor[(_revision & 0xF000) >> 12]
 
-    type = _type[(_revision & 0xFF0) >> 4]
+    board_type = _type[(_revision & 0xFF0) >> 4]
 
     version = _version[(_revision & 0xFF0) >> 4]
 
@@ -280,13 +281,13 @@ if _scheme:
     pcb_revision = _revision & 0xF
 
 else:
-    waranty = int((_revision & 0x40) >> 7) > 0
+    warranty = int((_revision & 0x40) >> 7) > 0
 
     memory = _memory_from_revision[_revision]
 
     manufacturer = _manufacturer_from_revision[_revision]
 
-    type = _type_from_revision[_revision]
+    board_type = _type_from_revision[_revision]
 
     version = _version_from_revision[_revision]
 
@@ -298,26 +299,28 @@ info = {
     'memory': memory,
     'manufacturer': manufacturer,
     'processor': processor,
-    'type': type,
+    'type': board_type,
     'revision': _cpuinfo['Revision'],
     'pcb_revision': pcb_revision,
     'model': model,
     'version': version,
+    'warranty': warranty
 }
 
 
 def main():
-    print("---- Raspberry Pi Info ----")
-    print("Type:\t\t{}".format(type))
-    print("Model:\t\t{}".format(model))
-    print("Version:\t{}".format(version))
-    print("RAM:\t\t{}".format(memory))
-    print("CPU:\t\t{}".format(processor))
-    print("Manufacturer:\t{}".format(manufacturer))
-    print("PCB revision:\t{}".format(pcb_revision))
-    print("Revision:\t{}".format(_cpuinfo['Revision']))
-    print("Void waranty:\t{}".format(waranty))
-    print("---------------------------")
+    print("""---- Raspberry Pi Info ----
+Type:\t\t{type}
+Model:\t\t{model}
+Version:\t{version}
+RAM:\t\t{memory}
+CPU:\t\t{processor}
+Manufacturer:\t{manufacturer}
+PCB Revision:\t{pcb_revision}
+Revision:\t{revision}
+Void warranty:\t{warranty}
+---------------------------
+""".format(**info))
 
 
 if __name__ == '__main__':

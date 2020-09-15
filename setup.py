@@ -28,7 +28,6 @@ classifiers = [
     'Operating System :: POSIX :: Linux',
     'License :: OSI Approved :: MIT License',
     'Intended Audience :: Developers',
-    'Programming Language :: Python :: 2.6',
     'Programming Language :: Python :: 2.7',
     'Programming Language :: Python :: 3',
     'Topic :: Software Development',
@@ -37,7 +36,7 @@ classifiers = [
 
 setup(
     name='RPi.version',
-    version='1.2',
+    version='2.0',
     author='Philip Howard',
     author_email='phil@pimoroni.com',
     description='Detailed information about Raspberry Pi version',

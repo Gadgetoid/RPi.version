@@ -2,6 +2,14 @@
 Changelog
 =========
 
+2.0
+---
+
+ * Support for Python 3.x
+ * Entry point for `rpi-version`
+ * Linting fixes and cleanup
+ * Declare namespace to avoid clobbering RPi.GPIO
+
 1.2
 ---
 
